@@ -1,0 +1,14 @@
+{
+  "name": "final_project_ant324",
+  "version": "1.0.0",
+  "description": "identify term symbol of given element",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ing Angsara",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

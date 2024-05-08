@@ -1,0 +1,241 @@
+<!-- Ing-Angsara Thongchai, ant324  -->
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Wecome to Periodic Table: Term Symbol Game </title>
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <div id="score"></div>
+  <div id="correct"></div>
+  <div id="wrong"></div>
+  <div id="gameover"></div>
+  <div id="inputPlz"></div>
+  <div id="checkboxPlz"></div>
+  <button class="reset-button">Restart</button>
+  <input type="text" id="textInput" placeholder="Enter the element">
+  <button class="submit-button" disabled>Submit Answer</button>
+  <div id="random-selected-element"></div>
+  <!-- when start without checking any box of element of groups -->
+  <div id="error-message"></div> 
+    <br>
+        <h1 class="heading">WHAT'S THAT ELEMENT!?</h1>
+    <br>
+    <h4>WAIT! Pick the group/s of elements before you start</h4>
+  <center>
+    <div class="checkboxes">
+      <label><input type="checkbox" class="group-checkbox" data-group="alkali"> Alkali</label>
+      <label><input type="checkbox" class="group-checkbox" data-group="alkaliEarth"> Alkali Earth</label>
+      <label><input type="checkbox" class="group-checkbox" data-group="reactNonMet"> Reactive Non-metals</label>
+      <label><input type="checkbox" class="group-checkbox" data-group="noble"> Noble Gases</label>
+      <label><input type="checkbox" class="group-checkbox" data-group="metalloid"> Metalloid </label>
+      <label><input type="checkbox" class="group-checkbox" data-group="halogen"> Halogen </label>
+      <label><input type="checkbox" class="group-checkbox" data-group="postTransMet"> Post Transition Metals </label>
+      <label><input type="checkbox" class="group-checkbox" data-group="transMet"> Transition Metals </label>
+      <label><input type="checkbox" class="group-checkbox" data-group="unknown"> Unknown Properties </label>
+      <label><input type="checkbox" class="group-checkbox" data-group="lanthanide"> Lanthanides</label>
+      <label><input type="checkbox" class="group-checkbox" data-group="actinide"> Actinides </label>
+      <label><input type="checkbox" id="select-all"> Select All</label>     
+    </div>
+    <!-- activate to call activate function in script.js to activate -->
+    <!-- <button onclick="activate()">Start Playing</button>  -->
+    <button class="activate-button">Start Playing</button>
+
+    <br>
+        <table id="periodic-table">
+          <!-- first row -->
+          <tr>  
+            <td class="reactNonMet"><span class="atomicNum">1</span><br><span class="symbol">H</span><br><span class="element">Hydrogen</span></td>
+            <td class="none" colspan="16"></td>
+            <td class="noble"><span class="atomicNum">2</span><br><span class="symbol">He</span><br><span class="element">Helium</span></td>
+          </tr>
+
+          <!-- 2nd row -->
+          <tr>
+            <td class="alkali"><span class="atomicNum">3</span><br><span class="symbol">Li</span><br><span class="element">Lithium</span></td>
+            <td class="alkaliEarth"><span class="atomicNum">4</span><br><span class="symbol">Be</span><br><span class="element">Beryllium</span></td>
+            <td class="none" colspan="10"></td>
+            <td class="metalloid"><span class="atomicNum">5</span><br><span class="symbol">B</span><br><span class="element">Boron</span></td>
+            <td class="reactNonMet"><span class="atomicNum">6</span><br><span class="symbol">C</span><br><span class="element">Carbon</span></td>
+            <td class="reactNonMet"><span class="atomicNum">7</span><br><span class="symbol">N</span><br><span class="element">Nitrogen</span></td>
+            <td class="reactNonMet"><span class="atomicNum">8</span><br><span class="symbol">O</span><br><span class="element">Oxygen</span></td>
+            <td class="halogen"><span class="atomicNum">9</span><br><span class="symbol">F</span><br><span class="element">Fluorine</span></td>
+            <td class="noble"><span class="atomicNum">10</span><br><span class="symbol">Ne</span><br><span class="element">Neon</span></td>
+          </tr>
+
+          <!-- 3rd row -->
+          <tr>
+            <td class="alkali"><span class="atomicNum">11</span><br><span class="symbol">Na</span><br><span class="element">Sodium</span></td>
+            <td class="alkaliEarth"><span class="atomicNum">12</span><br><span class="symbol">Mg</span><br><span class="element">Magnesium</span></td>
+            <td class="none" colspan="10"></td> 
+            <td class="postTransMet"><span class="atomicNum">13</span><br><span class="symbol">Al</span><br><span class="element">Aluminum</span></td>
+            <td class="metalloid"><span class="atomicNum">14</span><br><span class="symbol">Si</span><br><span class="element">Silicon</span></td>
+            <td class="reactNonMet"><span class="atomicNum">15</span><br><span class="symbol">P</span><br><span class="element">Phosphorus</span></td>
+            <td class="reactNonMet"><span class="atomicNum">16</span><br><span class="symbol">S</span><br><span class="element">Sulfur</span></td>
+            <td class="halogen"><span class="atomicNum">17</span><br><span class="symbol">Cl</span><br><span class="element">Chlorine</span></td>
+            <td class="noble"><span class="atomicNum">18</span><br><span class="symbol">Ar</span><br><span class="element">Argon</span></td>
+          </tr>
+
+          <!-- 4th row -->
+          <tr>
+            <td class="alkali"><span class="atomicNum">19</span><br><span class="symbol">K</span><br><span class="element">Potassium</span></td>
+            <td class="alkaliEarth"><span class="atomicNum">20</span><br><span class="symbol">Ca</span><br><span class="element">Calcium</span></td>
+            <td class="transMet"><span class="atomicNum">21</span><br><span class="symbol">Sc</span><br><span class="element">Scandium</span></td>
+            <td class="transMet"><span class="atomicNum">22</span><br><span class="symbol">Ti</span><br><span class="element">Titanium</span></td>
+            <td class="transMet"><span class="atomicNum">23</span><br><span class="symbol">V</span><br><span class="element">Vanadium</span></td>
+            <td class="transMet"><span class="atomicNum">24</span><br><span class="symbol">Cr</span><br><span class="element">Chromium</span></td>
+            <td class="transMet"><span class="atomicNum">25</span><br><span class="symbol">Mn</span><br><span class="element">Manganese</span></td>
+            <td class="transMet"><span class="atomicNum">26</span><br><span class="symbol">Fe</span><br><span class="element">Iron</span></td>
+            <td class="transMet"><span class="atomicNum">27</span><br><span class="symbol">Co</span><br><span class="element">Cobalt</span></td>
+            <td class="transMet"><span class="atomicNum">28</span><br><span class="symbol">Ni</span><br><span class="element">Nickel</span></td>
+            <td class="transMet"><span class="atomicNum">29</span><br><span class="symbol">Cu</span><br><span class="element">Copper</span></td>
+            <td class="transMet"><span class="atomicNum">30</span><br><span class="symbol">Zn</span><br><span class="element">Zinc</span></td>
+            <td class="postTransMet"><span class="atomicNum">31</span><br><span class="symbol">Ga</span><br><span class="element">Gallium</span></td>
+            <td class="metalloid"><span class="atomicNum">32</span><br><span class="symbol">Ge</span><br><span class="element">Germanium</span></td>
+            <td class="metalloid"><span class="atomicNum">33</span><br><span class="symbol">As</span><br><span class="element">Arsenic</span></td>
+            <td class="reactNonMet"><span class="atomicNum">34</span><br><span class="symbol">Se</span><br><span class="element">Selenium</span></td>
+            <td class="halogen"><span class="atomicNum">35</span><br><span class="symbol">Br</span><br><span class="element">Bromine</span></td>
+            <td class="noble"><span class="atomicNum">36</span><br><span class="symbol">Kr</span><br><span class="element">Krypton</span></td>
+          </tr>
+
+          <!-- 5th row -->
+          <tr>
+            <td class="alkali"><span class="atomicNum">37</span><br><span class="symbol">Rb</span><br><span class="element">Rubidium</span></td>
+            <td class="alkaliEarth"><span class="atomicNum">38</span><br><span class="symbol">Sr</span><br><span class="element">Strontium</span></td>
+            <td class="transMet"><span class="atomicNum">39</span><br><span class="symbol">Y</span><br><span class="element">Yttrium</span></td>
+            <td class="transMet"><span class="atomicNum">40</span><br><span class="symbol">Zr</span><br><span class="element">Zirconium</span></td>
+            <td class="transMet"><span class="atomicNum">41</span><br><span class="symbol">Nb</span><br><span class="element">Niobium</span></td>
+            <td class="transMet"><span class="atomicNum">42</span><br><span class="symbol">Mo</span><br><span class="element">Molybdenum</span></td>
+            <td class="transMet"><span class="atomicNum">43</span><br><span class="symbol">Tc</span><br><span class="element">Technetium</span></td>
+            <td class="transMet"><span class="atomicNum">44</span><br><span class="symbol">Ru</span><br><span class="element">Ruthenium</span></td>
+            <td class="transMet"><span class="atomicNum">45</span><br><span class="symbol">Rh</span><br><span class="element">Rhodium</span></td>
+            <td class="transMet"><span class="atomicNum">46</span><br><span class="symbol">Pd</span><br><span class="element">Palladium</span></td>
+            <td class="transMet"><span class="atomicNum">47</span><br><span class="symbol">Ag</span><br><span class="element">Silver</span></td>
+            <td class="transMet"><span class="atomicNum">48</span><br><span class="symbol">Cd</span><br><span class="element">Cadmium</span></td>
+            <td class="postTransMet"><span class="atomicNum">49</span><br><span class="symbol">In</span><br><span class="element">Indium</span></td>
+            <td class="postTransMet"><span class="atomicNum">50</span><br><span class="symbol">Sn</span><br><span class="element">Tin</span></td>
+            <td class="metalloid"><span class="atomicNum">51</span><br><span class="symbol">Sb</span><br><span class="element">Antimony</span></td>
+            <td class="metalloid"><span class="atomicNum">52</span><br><span class="symbol">Te</span><br><span class="element">Tellurium</span></td>
+            <td class="halogen"><span class="atomicNum">53</span><br><span class="symbol">I</span><br><span class="element">Iodine</span></td>
+            <td class="noble"><span class="atomicNum">54</span><br><span class="symbol">Xe</span><br><span class="element">Xenon</span></td>
+          </tr>
+
+          <!-- 6th row -->
+          <tr>
+            <td class="alkali"><span class="atomicNum">55</span><br><span class="symbol">Cs</span><br><span class="element">Cesium</span></td>
+            <td class="alkaliEarth"><span class="atomicNum">56</span><br><span class="symbol">Ba</span><br><span class="element">Barium</span></td>
+            <td class="lanthanide"><span class="atomicNum">57</span><br><span class="symbol">La</span><br><span class="element">Lanthanum</span></td>
+            <td class="transMet"><span class="atomicNum">72</span><br><span class="symbol">Hf</span><br><span class="element">Hafnium</span></td>
+            <td class="transMet"><span class="atomicNum">73</span><br><span class="symbol">Ta</span><br><span class="element">Tantalum</span></td>
+            <td class="transMet"><span class="atomicNum">74</span><br><span class="symbol">W</span><br><span class="element">Tungsten</span></td>
+            <td class="transMet"><span class="atomicNum">75</span><br><span class="symbol">Re</span><br><span class="element">Rhenium</span></td>
+            <td class="transMet"><span class="atomicNum">76</span><br><span class="symbol">Os</span><br><span class="element">Osmium</span></td>
+            <td class="transMet"><span class="atomicNum">77</span><br><span class="symbol">Ir</span><br><span class="element">Iridium</span></td>
+            <td class="transMet"><span class="atomicNum">78</span><br><span class="symbol">Pt</span><br><span class="element">Platinum</span></td>
+            <td class="transMet"><span class="atomicNum">79</span><br><span class="symbol">Au</span><br><span class="element">Gold</span></td>
+            <td class="transMet"><span class="atomicNum">80</span><br><span class="symbol">Hg</span><br><span class="element">Mercury</span></td>
+            <td class="postTransMet"><span class="atomicNum">81</span><br><span class="symbol">Tl</span><br><span class="element">Thallium</span></td>
+            <td class="postTransMet"><span class="atomicNum">82</span><br><span class="symbol">Pb</span><br><span class="element">Lead</span></td>
+            <td class="postTransMet"><span class="atomicNum">83</span><br><span class="symbol">Bi</span><br><span class="element">Bismuth</span></td>
+            <td class="postTransMet"><span class="atomicNum">84</span><br><span class="symbol">Po</span><br><span class="element">Polonium</span></td>
+            <td class="halogen"><span class="atomicNum">85</span><br><span class="symbol">At</span><br><span class="element">Astatine</span></td>
+            <td class="noble"><span class="atomicNum">86</span><br><span class="symbol">Rn</span><br><span class="element">Radon</span></td>
+          </tr>
+
+          <!-- 7th row -->
+          <tr>
+            <td class="alkali"><span class="atomicNum">87</span><br><span class="symbol">Fr</span><br><span class="element">Francium</span></td>
+            <td class="alkaliEarth"><span class="atomicNum">88</span><br><span class="symbol">Ra</span><br><span class="element">Radium</span></td>
+            <td class="actinide"><span class="atomicNum">89</span><br><span class="symbol">Ac</span><br><span class="element">Actinium</span></td>
+            <td class="transMet"><span class="atomicNum">104</span><br><span class="symbol">Rf</span><br><span class="element">Rutherfordium</span></td>
+            <td class="transMet"><span class="atomicNum">105</span><br><span class="symbol">Db</span><br><span class="element">Dubnium</span></td>
+            <td class="transMet"><span class="atomicNum">106</span><br><span class="symbol">Sg</span><br><span class="element">Seaborgium</span></td>
+            <td class="transMet"><span class="atomicNum">107</span><br><span class="symbol">Bh</span><br><span class="element">Bohrium</span></td>
+            <td class="transMet"><span class="atomicNum">108</span><br><span class="symbol">Hs</span><br><span class="element">Hassium</span></td>
+            <td class="unknown"><span class="atomicNum">109</span><br><span class="symbol">Mt</span><br><span class="element">Meitnerium</span></td>
+            <td class="unknown"><span class="atomicNum">110</span><br><span class="symbol">Ds</span><br><span class="element">Darmstadtium</span></td>
+            <td class="unknown"><span class="atomicNum">111</span><br><span class="symbol">Rg</span><br><span class="element">Roentgenium</span></td>
+            <td class="unknown"><span class="atomicNum">112</span><br><span class="symbol">Cn</span><br><span class="element">Copernicium</span></td>
+            <td class="unknown"><span class="atomicNum">113</span><br><span class="symbol">Nh</span><br><span class="element">Nihonium</span></td>
+            <td class="unknown"><span class="atomicNum">114</span><br><span class="symbol">Fl</span><br><span class="element">Flerovium</span></td>
+            <td class="unknown"><span class="atomicNum">115</span><br><span class="symbol">Mc</span><br><span class="element">Moscovium</span></td>
+            <td class="unknown"><span class="atomicNum">116</span><br><span class="symbol">Lv</span><br><span class="element">Livermorium</span></td>
+            <td class="unknown"><span class="atomicNum">117</span><br><span class="symbol">Ts</span><br><span class="element">Tennessine</span></td>
+            <td class="unknown"><span class="atomicNum">118</span><br><span class="symbol">Og</span><br><span class="element">Oganesson</span></td>
+          </tr>
+
+          <!-- 8th row just empty to separate the lantanide and actinide from the main groups -->
+          <tr>
+            <td class="none"></td> 
+          </tr>
+
+          <!-- 9th row lantanide-->
+          <tr>
+            <td class="none" colspan="3" rowspan="2"></td>
+            <!-- <td class="lanthanide"><span class="atomicNum">57</span><br><span class="symbol">La</span></td> -->
+            <td class="lanthanide"><span class="atomicNum">58</span><br><span class="symbol">Ce</span><br><span class="element">Cerium</span></td>
+            <td class="lanthanide"><span class="atomicNum">59</span><br><span class="symbol">Pr</span><br><span class="element">Praseodymium</span></td>
+            <td class="lanthanide"><span class="atomicNum">60</span><br><span class="symbol">Nd</span><br><span class="element">Neodymium</span></td>
+            <td class="lanthanide"><span class="atomicNum">61</span><br><span class="symbol">Pm</span><br><span class="element">Promethium</span></td>
+            <td class="lanthanide"><span class="atomicNum">62</span><br><span class="symbol">Sm</span><br><span class="element">Samarium</span></td>
+            <td class="lanthanide"><span class="atomicNum">63</span><br><span class="symbol">Eu</span><br><span class="element">Europium</span></td>
+            <td class="lanthanide"><span class="atomicNum">64</span><br><span class="symbol">Gd</span><br><span class="element">Gadolinium</span></td>
+            <td class="lanthanide"><span class="atomicNum">65</span><br><span class="symbol">Tb</span><br><span class="element">Terbium</span></td>
+            <td class="lanthanide"><span class="atomicNum">66</span><br><span class="symbol">Dy</span><br><span class="element">Dysprosium</span></td>
+            <td class="lanthanide"><span class="atomicNum">67</span><br><span class="symbol">Ho</span><br><span class="element">Holmium</span></td>
+            <td class="lanthanide"><span class="atomicNum">68</span><br><span class="symbol">Er</span><br><span class="element">Erbium</span></td>
+            <td class="lanthanide"><span class="atomicNum">69</span><br><span class="symbol">Tm</span><br><span class="element">Thulium</span></td>
+            <td class="lanthanide"><span class="atomicNum">70</span><br><span class="symbol">Yb</span><br><span class="element">Ytterbium</span></td>
+            <td class="lanthanide"><span class="atomicNum">71</span><br><span class="symbol">Lu</span><br><span class="element">Lutetium</span></td>
+            <td class="none" colspan="2" rowspan="2"></td>
+          </tr>
+
+          <!-- 10th row actinide-->
+          <tr>
+            <!-- <td class="actinide"><span class="atomicNum">89</span><br><span class="symbol">Ac</span></td> -->
+            <td class="actinide"><span class="atomicNum">90</span><br><span class="symbol">Th</span><br><span class="element">Thorium</span></td>
+            <td class="actinide"><span class="atomicNum">91</span><br><span class="symbol">Pa</span><br><span class="element">Protactinium</span></td>
+            <td class="actinide"><span class="atomicNum">92</span><br><span class="symbol">U</span><br><span class="element">Uranium</span></td>
+            <td class="actinide"><span class="atomicNum">93</span><br><span class="symbol">Np</span><br><span class="element">Neptunium</span></td>
+            <td class="actinide"><span class="atomicNum">94</span><br><span class="symbol">Pu</span><br><span class="element">Plutonium</span></td>
+            <td class="actinide"><span class="atomicNum">95</span><br><span class="symbol">Am</span><br><span class="element">Americium</span></td>
+            <td class="actinide"><span class="atomicNum">96</span><br><span class="symbol">Cm</span><br><span class="element">Curium</span></td>
+            <td class="actinide"><span class="atomicNum">97</span><br><span class="symbol">Bk</span><br><span class="element">Berkelium</span></td>
+            <td class="actinide"><span class="atomicNum">98</span><br><span class="symbol">Cf</span><br><span class="element">Californium</span></td>
+            <td class="actinide"><span class="atomicNum">99</span><br><span class="symbol">Es</span><br><span class="element">Einsteinium</span></td>
+            <td class="actinide"><span class="atomicNum">100</span><br><span class="symbol">Fm</span><br><span class="element">Fermium</span></td>
+            <td class="actinide"><span class="atomicNum">101</span><br><span class="symbol">Md</span><br><span class="element">Mendelevium</span></td>
+            <td class="actinide"><span class="atomicNum">102</span><br><span class="symbol">No</span><br><span class="element">Nobelium</span></td>
+            <td class="actinide"><span class="atomicNum">103</span><br><span class="symbol">Lr</span><br><span class="element">Lawrencium</span></td>
+
+        </table>
+
+    </center>
+
+  
+
+
+  <script src="js/vendor/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="js/vendor/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
